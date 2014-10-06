@@ -16,7 +16,8 @@ app.controller('MainCtrl', function ($scope) {
     {
       name: 'age',
       type: 'integer',
-      format: 'int64'
+      format: 'int64',
+      minimum: 0
     },
     {
       name: 'email',

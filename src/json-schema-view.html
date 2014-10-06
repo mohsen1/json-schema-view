@@ -7,8 +7,10 @@
     <span class="name">{{property.name}}</span>
     <span class="colon">:</span>
     <span class="type">{{property.type}}</span>
-    <span class="formate" ng-if="!isCollapsed && property.format">({{property.format}})</span>
     <span class="required" ng-if="isRequired(property, schema)">*</span>
+    <span class="format" ng-if="!isCollapsed && has(property, 'format')">({{property.format}})</span>
+    <span class="range minimum" ng-if="!isCollapsed && has(property, 'minimum')">minimum:{{property.minimum}}</span>
+    <span class="range maximum" ng-if="!isCollapsed && has(property, 'maximum')">maximum:{{property.maximum}}</span>
   </div>
   <span class="closeing brace">}</span>
 </div>

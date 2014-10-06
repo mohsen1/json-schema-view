@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T21:38:55.385Z
+ * Version: 0.0.7 - 2014-10-06T21:47:02.831Z
  * License: MIT
  */
 
@@ -40,7 +40,11 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
       $scope.toggle = function() {
         $scope.isCollapsed = !$scope.isCollapsed;
       };
+
+      $scope.has = function(obj, propName) {
+        return Object.keys(obj).indexOf(propName) > -1;
+      };
     }
   };
 });
-angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><a class=\"toggler\" ng-click=\"toggle()\"></a> <span class=\"title\" ng-click=\"toggle()\">{{schema.title}}</span> <span class=\"opening brace\">{</span><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"property in properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span> <span class=\"type\">{{property.type}}</span> <span class=\"formate\" ng-if=\"!isCollapsed && property.format\">({{property.format}})</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span></div><span class=\"closeing brace\">}</span></div>");}]);
+angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><a class=\"toggler\" ng-click=\"toggle()\"></a> <span class=\"title\" ng-click=\"toggle()\">{{schema.title}}</span> <span class=\"opening brace\">{</span><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"property in properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span> <span class=\"type\">{{property.type}}</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span> <span class=\"format\" ng-if=\"!isCollapsed && has(property, \'format\')\">({{property.format}})</span> <span class=\"range minimum\" ng-if=\"!isCollapsed && has(property, \'minimum\')\">minimum:{{property.minimum}}</span> <span class=\"range maximum\" ng-if=\"!isCollapsed && has(property, \'maximum\')\">maximum:{{property.maximum}}</span></div><span class=\"closeing brace\">}</span></div>");}]);

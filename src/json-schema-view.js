@@ -32,6 +32,10 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
       $scope.toggle = function() {
         $scope.isCollapsed = !$scope.isCollapsed;
       };
+
+      $scope.has = function(obj, propName) {
+        return Object.keys(obj).indexOf(propName) > -1;
+      };
     }
   };
 });

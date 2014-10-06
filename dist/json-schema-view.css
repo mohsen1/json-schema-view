@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T21:20:48.800Z
+ * Version: 0.0.7 - 2014-10-06T21:46:45.112Z
  * License: MIT
  */
 
@@ -47,6 +47,7 @@
 }
 .json-schema-view .property > * {
   font-size: 14px;
+  padding: .2em;
 }
 .json-schema-view .property .name {
   color: blue;
