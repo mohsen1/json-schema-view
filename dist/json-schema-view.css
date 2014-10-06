@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T20:12:25.568Z
+ * Version: 0.0.7 - 2014-10-06T20:23:14.930Z
  * License: MIT
  */
 
@@ -9,11 +9,25 @@
 .json-schema-view {
   font-family: monospace;
 }
+.json-schema-view .description {
+  color: gray;
+  font-style: italic;
+}
+.json-schema-view .title {
+  font-weight: bold;
+}
 .json-schema-view .properties {
-  margin-left: 1em;
+  margin-left: 14px;
+  font-size: 0;
+}
+.json-schema-view .properties > * {
+  font-size: 14px;
 }
 .json-schema-view .properties .name {
   color: blue;
+}
+.json-schema-view .properties .colon {
+  margin: auto .1em;
 }
 .json-schema-view .properties .type {
   color: green;

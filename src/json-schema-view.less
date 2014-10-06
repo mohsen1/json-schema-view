@@ -1,11 +1,27 @@
 .json-schema-view {
   font-family: monospace;
 
+  .description {
+    color: gray;
+    font-style: italic;
+  }
+
+  .title {
+    font-weight: bold;
+  }
+
   .properties {
-    margin-left: 1em;
+    margin-left: 14px;
+    font-size: 0;
+    >*{
+      font-size: 14px;
+    }
 
     .name {
       color: blue;
+    }
+    .colon {
+      margin: auto .1em;
     }
     .type {
       color: green;

@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T20:12:25.563Z
+ * Version: 0.0.7 - 2014-10-06T20:21:43.401Z
  * License: MIT
  */
 
@@ -38,4 +38,4 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
     }
   };
 });
-angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\">{<div class=\"properties\" ng-repeat=\"property in properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span> <span class=\"type\">{{property.type}}</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span></div>}</div>");}]);
+angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\"><div class=\"description\">{{schema.description}}</div><span class=\"title\">{{schema.title}}</span> {<div class=\"properties\" ng-repeat=\"property in properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span> <span class=\"type\">{{property.type}}</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span></div>}</div>");}]);
