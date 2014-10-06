@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T21:46:45.112Z
+ * Version: 0.0.7 - 2014-10-06T22:57:38.474Z
  * License: MIT
  */
 
@@ -9,6 +9,9 @@
 .json-schema-view {
   font-family: monospace;
   font-size: 0;
+}
+.json-schema-view .json-schema-view {
+  margin-left: 14px;
 }
 .json-schema-view > * {
   font-size: 14px;

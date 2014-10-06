@@ -65,7 +65,8 @@ gulp.task('scripts', function() {
   };
 
   function buildDistJS(){
-    return gulp.src('src/json-schema-view.js')
+    return gulp.src(['src/json-schema-view.js', 'src/recursion-helper.js'])
+      .pipe(concat('json-schema-view.js'))
       .pipe(plumber({
         errorHandler: handleError
       }))

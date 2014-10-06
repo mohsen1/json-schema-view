@@ -1,8 +1,25 @@
 'use strict';
 
-angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', function () {
-  var value = 0;
+var module = angular.module('mohsen1.json-schema-view', ['RecursionHelper']);
 
+module.directive('jsonSchemaView', function (RecursionHelper) {
+  function link($scope) {
+    $scope.isCollapsed = false;
+
+    /*
+     * Toggles the 'collapsed' state
+    */
+    $scope.toggle = function() {
+      $scope.isCollapsed = !$scope.isCollapsed;
+    };
+
+    /*
+     * Determines if a property is a primitive
+    */
+    $scope.isPrimitive = function(property){
+      return ['string', 'boolean', 'integer', 'int'].indexOf(property.type) > -1;
+    };
+  }
   return {
     restrict: 'E',
     templateUrl: 'json-schema-view.html',
@@ -10,32 +27,50 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
     scope: {
       'schema': '='
     },
-    link: function ($scope) {
-      $scope.isCollapsed = false;
-      $scope.properties = $scope.schema.properties.map(function (prop) {
-        return prop;
-      });
+    compile: function(element) {
 
-      /*
-       * Returns true if property is required in given schema
-      */
-      $scope.isRequired = function(property, schema) {
-        schema = schema || $scope.schema;
+      // Use the compile function from the RecursionHelper,
+      // And return the linking function(s) which it returns
+      return RecursionHelper.compile(element, link);
+    }
+  };
+});
 
-        if (Array.isArray(schema.required) && property.name) {
-          return schema.required.indexOf(property.name) > -1;
-        }
+module.directive('primitiveProperty', function (RecursionHelper) {
+  function link($scope) {
 
-        return false;
-      };
+    /*
+     * Returns true if property is required in given schema
+    */
+    $scope.isRequired = function(property, schema) {
+      schema = schema || $scope.$parent.schema;
 
-      $scope.toggle = function() {
-        $scope.isCollapsed = !$scope.isCollapsed;
-      };
+      if (Array.isArray(schema.required) && property.name) {
+        return schema.required.indexOf(property.name) > -1;
+      }
 
-      $scope.has = function(obj, propName) {
-        return Object.keys(obj).indexOf(propName) > -1;
-      };
+      return false;
+    };
+
+    /*
+     * Checks and see if an object (_obj_) has a member with _propName_ name
+    */
+    $scope.has = function(obj, propName) {
+      return Object.keys(obj).indexOf(propName) > -1;
+    };
+    }
+  return {
+    restrict: 'E',
+    templateUrl: 'primitive.html',
+    replcae: true,
+    scope: {
+      property: '='
+    },
+    compile: function(element) {
+
+      // Use the compile function from the RecursionHelper,
+      // And return the linking function(s) which it returns
+      return RecursionHelper.compile(element, link);
     }
   };
 });

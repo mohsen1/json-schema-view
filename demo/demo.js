@@ -9,25 +9,40 @@ app.controller('MainCtrl', function ($scope) {
     title: 'Person',
     description: 'A person in our database',
     properties: [
-    {
-      name: 'name',
-      type: 'string'
-    },
-    {
-      name: 'age',
-      type: 'integer',
-      format: 'int64',
-      minimum: 0
-    },
-    {
-      name: 'email',
-      type: 'string'
-    },
-    {
-      name: 'single',
-      type: 'boolean'
-    }
+      {
+        name: 'name',
+        type: 'string'
+      },
+      {
+        name: 'age',
+        type: 'integer',
+        format: 'int64',
+        minimum: 0
+      },
+      {
+        name: 'email',
+        type: 'string'
+      },
+      {
+        name: 'single',
+        type: 'boolean'
+      },
+      {
+        name: 'interests',
+        type: 'array',
+        items: {
+          title: 'Interest',
+          description: 'An interest',
+          properties: [
+            {
+              name: 'name',
+              type: 'string'
+            }
+          ],
+          required: ['name']
+        }
+      }
     ],
     required: ['name', 'age']
   };
-})
+});
