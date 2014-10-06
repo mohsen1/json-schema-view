@@ -8,6 +8,7 @@ app.controller('MainCtrl', function ($scope) {
   $scope.string = {
     title: 'Person',
     description: 'A person in our database',
+    type: 'object',
     properties: [
       {
         name: 'name',
@@ -26,6 +27,23 @@ app.controller('MainCtrl', function ($scope) {
       {
         name: 'single',
         type: 'boolean'
+      },
+      {
+        name: 'school',
+        type: 'object',
+        title: 'School',
+        description: 'A School',
+        properties: [
+          {
+            name: 'name',
+            type: 'string'
+          },
+          {
+            name: 'district',
+            type: 'string'
+          }
+        ],
+        required: ['name']
       },
       {
         name: 'interests',

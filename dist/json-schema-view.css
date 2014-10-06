@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T23:38:58.380Z
+ * Version: 0.0.7 - 2014-10-06T23:48:46.741Z
  * License: MIT
  */
 
@@ -23,7 +23,7 @@ json-schema-view > * {
 .json-schema-view .toggler,
 json-schema-view .toggler {
   cursor: pointer;
-  margin: auto .1em;
+  margin: auto .3em;
   font-size: 10px;
   display: inline-block;
   transform-origin: 50% 40%;

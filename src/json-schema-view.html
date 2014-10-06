@@ -12,8 +12,8 @@
     <!-- Primitive -->
     <primitive-property ng-if="isPrimitive(property)" property="property"></primitive-property>
 
-    <!-- Array -->
-    <json-schema-view ng-if="property.type === 'array'" schema="property"></json-schema-view>
+    <!-- Array and Object -->
+    <json-schema-view ng-if="!isPrimitive(property)" schema="property"></json-schema-view>
   </div>
   <span class="closeing brace">}</span>
   <span ng-if="isArray" class="array-of">]</span>
