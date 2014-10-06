@@ -25,18 +25,23 @@ describe('json-schema-view', function () {
     if (element) element.remove();
   });
 
-  describe('as an element', function(){ runTestsWithTemplate('<json-schema-view></json-schema-view>'); });
-  describe('as an attribute', function(){ runTestsWithTemplate('<div json-schema-view></div>'); });
+  describe('simple schema', function (){
+    it('should render property name and type', function () {
+      $rootScope.simple = {properties: [{type: 'string', name: 'value'}]};
+      element = createDirective('<json-schema-view schema="simple"></json-schema-view>');
 
-  function runTestsWithTemplate(template) {
-    describe('when created', function () {
-
-      it('should initial the value to 0', function () {
-        element = createDirective(template);
-
-        expect(element.text()).toContain('0');
-      });
+      expect(element.text()).toContain('string');
+      expect(element.text()).toContain('value');
     });
-  }
+
+    it('should put an asterisk next to required properties', function () {
+      $rootScope.simpleRequired = {
+        properties: [{type: 'string', name: 'value'}],
+        required: ['value']
+      };
+      element = createDirective('<json-schema-view schema="simpleRequired"></json-schema-view>');
+      expect(element.text()).toContain('*');
+    });
+  });
 
 });

@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T18:27:10.978Z
+ * Version: 0.0.7 - 2014-10-06T20:12:25.563Z
  * License: MIT
  */
 
@@ -15,15 +15,27 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
     restrict: 'AE',
     templateUrl: 'json-schema-view.html',
     replcae: true,
+    scope: {
+      'schema': '='
+    },
     link: function ($scope) {
+      $scope.properties = $scope.schema.properties.map(function (prop) {
+        return prop;
+      });
 
-      $scope.getValue = function () {
-        return value;
-      };
-      $scope.increment = function () {
-        value++;
+      /*
+       * Returns true if property is required in given schema
+      */
+      $scope.isRequired = function(property, schema){
+        schema = schema || $scope.schema;
+
+        if (Array.isArray(schema.required) && property.name) {
+          return schema.required.indexOf(property.name) > -1;
+        }
+
+        return false;
       };
     }
   };
 });
-angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\"><div>The value is {{getValue()}}</div><button ng-click=\"increment()\">+</button></div>");}]);
+angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\">{<div class=\"properties\" ng-repeat=\"property in properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span> <span class=\"type\">{{property.type}}</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span></div>}</div>");}]);

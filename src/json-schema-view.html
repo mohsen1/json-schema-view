@@ -1,4 +1,10 @@
 <div class="json-schema-view">
-  <div>The value is {{getValue()}}</div>
-  <button ng-click="increment()">+</button>
+  {
+  <div class="properties" ng-repeat="property in properties">
+    <span class="name">{{property.name}}</span>
+    <span class="colon">:</span>
+    <span class="type">{{property.type}}</span>
+    <span class="required" ng-if="isRequired(property, schema)">*</span>
+  </div>
+  }
 </div>
