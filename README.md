@@ -1,4 +1,9 @@
-# Json-schema-view
+# JSON Schema View
+
+**An AngularJS directive for rendering JSON Schema in HTML.**
+JSON Schema is very verbose and hard to read in JSON. This directive helps rendering a JSON Schema in a user readable format.
+
+![Screenshot](/images/screenshot.png?raw=true)
 
 ### Installation
 
@@ -10,7 +15,11 @@ bower install json-schema-view
 
 ### Usage
 
-Add it as a dependency to your app and then use mohsen1.json-schema-view in your HTML files.
+Add it as a dependency to your app and then use `<json-schema-view>` in your HTML as follow
+
+```html
+<json-schema-view schema="{name: 'value', type: 'string'}"></json-schema-view>
+```
 
 ### Development
 
