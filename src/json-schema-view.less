@@ -1,16 +1,44 @@
 .json-schema-view {
   font-family: monospace;
+  font-size: 0;
+  >*{
+    font-size: 14px;
+  }
+
+  .toggler {
+    cursor: pointer;
+    margin: auto .1em;
+    font-size: 10px;
+    display: inline-block;
+    transform-origin: 50% 40%;
+    transition: transform 150ms ease-in;
+
+    &:after {
+      content: "▼";
+    }
+
+    &, &:hover {
+      text-decoration: none;
+      color: #333;
+    }
+  }
+
+  .brace {
+    margin: auto .1em;
+  }
 
   .description {
     color: gray;
     font-style: italic;
+    margin-left: 14px;
   }
 
   .title {
     font-weight: bold;
+    cursor: pointer;
   }
 
-  .properties {
+  .property {
     margin-left: 14px;
     font-size: 0;
     >*{
@@ -28,6 +56,28 @@
     }
     .required {
       color: red;
+    }
+  }
+
+  &.collapsed {
+    .description {
+      display: none;
+    }
+    .property {
+      margin-left: 14px/2;
+      margin-right: 14px/2;
+      display: inline-block;
+
+      &:not(:last-of-type):after {
+        content: ",";
+        font-size: 14px;
+      }
+    }
+    .closeing.brace {
+      display: inline-block;
+    }
+    .toggler {
+      transform: rotate(-90deg);
     }
   }
 }

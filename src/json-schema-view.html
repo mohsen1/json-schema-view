@@ -1,12 +1,13 @@
-<div class="json-schema-view">
+<div class="json-schema-view" ng-class="{collapsed: isCollapsed}">
+  <a class="toggler" ng-click="toggle()"></a>
+  <span class="title" ng-click="toggle()">{{schema.title}}</span>
+  <span class="opening brace">{</span>
   <div class="description">{{schema.description}}</div>
-  <span class="title">{{schema.title}}</span>
-  {
-  <div class="properties" ng-repeat="property in properties">
+  <div class="property" ng-repeat="property in properties">
     <span class="name">{{property.name}}</span>
     <span class="colon">:</span>
     <span class="type">{{property.type}}</span>
     <span class="required" ng-if="isRequired(property, schema)">*</span>
   </div>
-  }
+  <span class="closeing brace">}</span>
 </div>

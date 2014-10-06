@@ -15,8 +15,17 @@ app.controller('MainCtrl', function ($scope) {
     },
     {
       name: 'age',
-      type: 'int'
-    }],
-    required: ['value']
+      type: 'integer'
+    },
+    {
+      name: 'email',
+      type: 'string'
+    },
+    {
+      name: 'single',
+      type: 'boolean'
+    }
+    ],
+    required: ['name', 'age']
   };
 })

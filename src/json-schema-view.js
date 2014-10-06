@@ -4,13 +4,14 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
   var value = 0;
 
   return {
-    restrict: 'AE',
+    restrict: 'E',
     templateUrl: 'json-schema-view.html',
     replcae: true,
     scope: {
       'schema': '='
     },
     link: function ($scope) {
+      $scope.isCollapsed = false;
       $scope.properties = $scope.schema.properties.map(function (prop) {
         return prop;
       });
@@ -18,7 +19,7 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
       /*
        * Returns true if property is required in given schema
       */
-      $scope.isRequired = function(property, schema){
+      $scope.isRequired = function(property, schema) {
         schema = schema || $scope.schema;
 
         if (Array.isArray(schema.required) && property.name) {
@@ -26,6 +27,10 @@ angular.module('mohsen1.json-schema-view', []).directive('jsonSchemaView', funct
         }
 
         return false;
+      };
+
+      $scope.toggle = function() {
+        $scope.isCollapsed = !$scope.isCollapsed;
       };
     }
   };
