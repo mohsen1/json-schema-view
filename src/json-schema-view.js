@@ -6,6 +6,11 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = false;
 
+    if ($scope.schema.type === 'array') {
+      $scope.isArray = true;
+      $scope.schema = $scope.schema.items;
+    }
+
     /*
      * Toggles the 'collapsed' state
     */

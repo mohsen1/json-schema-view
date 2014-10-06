@@ -1,6 +1,7 @@
-.json-schema-view {
+.json-schema-view, json-schema-view {
   font-family: monospace;
   font-size: 0;
+  display: table-cell;
 
   .json-schema-view {
     margin-left: 14px;
@@ -44,18 +45,19 @@
   }
 
   .property {
-    margin-left: 14px;
     font-size: 0;
+    display: table-row;
+
     >*{
       font-size: 14px;
       padding: .2em;
     }
 
     .name {
+      padding-left: 14px;
       color: blue;
-    }
-    .colon {
-      margin: auto .1em;
+      display: table-cell;
+      vertical-align: top;
     }
     .type {
       color: green;
@@ -70,14 +72,7 @@
       display: none;
     }
     .property {
-      margin-left: 14px/2;
-      margin-right: 14px/2;
-      display: inline-block;
-
-      &:not(:last-of-type):after {
-        content: ",";
-        font-size: 14px;
-      }
+      display: none;
     }
     .closeing.brace {
       display: inline-block;

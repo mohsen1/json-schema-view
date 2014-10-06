@@ -1,19 +1,20 @@
 <div class="json-schema-view" ng-class="{collapsed: isCollapsed}">
   <a class="toggler" ng-click="toggle()"></a>
-  <span class="title" ng-click="toggle()">{{schema.title}}</span>
+  <span class="title" ng-click="toggle()">
+    <span ng-if="isArray" class="array-of">[</span>
+    {{schema.title}}
+  </span>
   <span class="opening brace">{</span>
   <div class="description">{{schema.description}}</div>
   <div class="property" ng-repeat="property in schema.properties">
-    <span class="name">{{property.name}}</span>
-    <span class="colon">:</span>
+    <span class="name">{{property.name}}:</span>
 
     <!-- Primitive -->
     <primitive-property ng-if="isPrimitive(property)" property="property"></primitive-property>
 
     <!-- Array -->
-    <span ng-if="property.type === 'array'" class="opening bracket">Array [</span>
-    <json-schema-view ng-if="property.type === 'array'" schema="property.items"></json-schema-view>
-    <span ng-if="property.type === 'array'"  class="closing bracket">]</span>
+    <json-schema-view ng-if="property.type === 'array'" schema="property"></json-schema-view>
   </div>
   <span class="closeing brace">}</span>
+  <span ng-if="isArray" class="array-of">]</span>
 </div>

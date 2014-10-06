@@ -1,7 +1,7 @@
 /*!
  * angular-directive-boilerplate
  * https://github.com/mohsen1/angular-directive-boilerplate
- * Version: 0.0.7 - 2014-10-06T23:00:10.537Z
+ * Version: 0.0.7 - 2014-10-06T23:39:42.170Z
  * License: MIT
  */
 
@@ -13,6 +13,11 @@ var module = angular.module('mohsen1.json-schema-view', ['RecursionHelper']);
 module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = false;
+
+    if ($scope.schema.type === 'array') {
+      $scope.isArray = true;
+      $scope.schema = $scope.schema.items;
+    }
 
     /*
      * Toggles the 'collapsed' state
@@ -128,5 +133,5 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
   };
 }]);
 
-angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><a class=\"toggler\" ng-click=\"toggle()\"></a> <span class=\"title\" ng-click=\"toggle()\">{{schema.title}}</span> <span class=\"opening brace\">{</span><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"property in schema.properties\"><span class=\"name\">{{property.name}}</span> <span class=\"colon\">:</span><primitive-property ng-if=\"isPrimitive(property)\" property=\"property\"></primitive-property><span ng-if=\"property.type === \'array\'\" class=\"opening bracket\">Array [</span><json-schema-view ng-if=\"property.type === \'array\'\" schema=\"property.items\"></json-schema-view><span ng-if=\"property.type === \'array\'\" class=\"closing bracket\">]</span></div><span class=\"closeing brace\">}</span></div>");
+angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><a class=\"toggler\" ng-click=\"toggle()\"></a> <span class=\"title\" ng-click=\"toggle()\"><span ng-if=\"isArray\" class=\"array-of\">[</span> {{schema.title}}</span> <span class=\"opening brace\">{</span><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"property in schema.properties\"><span class=\"name\">{{property.name}}:</span><primitive-property ng-if=\"isPrimitive(property)\" property=\"property\"></primitive-property><json-schema-view ng-if=\"property.type === \'array\'\" schema=\"property\"></json-schema-view></div><span class=\"closeing brace\">}</span> <span ng-if=\"isArray\" class=\"array-of\">]</span></div>");
 $templateCache.put("primitive.html","<span class=\"primitive\"><span class=\"type\">{{property.type}}</span> <span class=\"required\" ng-if=\"isRequired(property, schema)\">*</span> <span class=\"format\" ng-if=\"!isCollapsed && has(property, \'format\')\">({{property.format}})</span> <span class=\"range minimum\" ng-if=\"!isCollapsed && has(property, \'minimum\')\">minimum:{{property.minimum}}</span> <span class=\"range maximum\" ng-if=\"!isCollapsed && has(property, \'maximum\')\">maximum:{{property.maximum}}</span></span>");}]);
