@@ -1,6 +1,7 @@
 # JSON Schema View
 
 **An AngularJS directive for rendering JSON Schema in HTML.**
+
 JSON Schema is very verbose and hard to read in JSON. This directive helps rendering a JSON Schema in a user readable format.
 
 ![Screenshot](/images/screenshot.png?raw=true)
@@ -28,7 +29,7 @@ Install Gulp via npm if you don't have it
 npm install -g gulp
 ```
 
-### Available commands
+#### Available commands
 
 * `gulp`: build and test the project
 * `gulp build`: build the project and make new files in`dist`
