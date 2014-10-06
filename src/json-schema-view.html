@@ -7,6 +7,7 @@
     <span class="name">{{property.name}}</span>
     <span class="colon">:</span>
     <span class="type">{{property.type}}</span>
+    <span class="formate" ng-if="!isCollapsed && property.format">({{property.format}})</span>
     <span class="required" ng-if="isRequired(property, schema)">*</span>
   </div>
   <span class="closeing brace">}</span>

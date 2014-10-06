@@ -15,7 +15,8 @@ app.controller('MainCtrl', function ($scope) {
     },
     {
       name: 'age',
-      type: 'integer'
+      type: 'integer',
+      format: 'int64'
     },
     {
       name: 'email',
