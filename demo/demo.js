@@ -1,0 +1,1 @@
+var app = angular.module('demo', ['ngSanitize', 'mohsen1.json-schema-view']);

@@ -1,0 +1,37 @@
+{
+  "name": "json-schema-view",
+  "version": "0.0.7",
+  "authors": [
+    "undefined <function () {
+  var email = emailCache[process.cwd()];
+
+  if (email) {
+    return email;
+  }
+
+  if (shell.which('git')) {
+    email = shell.exec('git config --get user.email', { silent: true }).output.trim();
+    emailCache[process.cwd()] = email;
+  }
+
+  return email;
+}>"
+  ],
+  "description": "",
+  "main": "dist/json-schema-view.js, dist/json-schema-view.js",
+  "license": "MIT",
+  "private": false,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.1",
+    "angular": "~1.2.26",
+    "angular-sanitize": "~1.2.26",
+    "angular-mocks": "~1.2.26"
+  }
+}
