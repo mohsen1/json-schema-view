@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.3.0 - 2014-10-07T01:00:58.521Z
+ * Version: 0.3.2 - 2014-10-07T18:04:18.717Z
  * License: MIT
  */
 
@@ -18,6 +18,9 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
      * Recursively walk the schema and add property 'name' to property objects
     */
     function addPropertyName(schema) {
+      if (!schema) {
+        return;
+      }
       if (angular.isObject(schema.items)) {
         addPropertyName(schema.items);
       }
