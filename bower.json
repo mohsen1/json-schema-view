@@ -1,12 +1,15 @@
 {
   "name": "json-schema-view",
   "repositiory": "mohsen1/json-schema-view",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "authors": [
     "Mohsen Azimi <msn.azi@gmail.com>"
   ],
   "description": "",
-  "main": ["dist/json-schema-view.js", "dist/json-schema-view.css"],
+  "main": [
+    "dist/json-schema-view.js",
+    "dist/json-schema-view.css"
+  ],
   "license": "MIT",
   "private": false,
   "ignore": [
