@@ -6,7 +6,7 @@
     "Mohsen Azimi <msn.azi@gmail.com>"
   ],
   "description": "",
-  "main": "dist/json-schema-view.js, dist/json-schema-view.css",
+  "main": ["dist/json-schema-view.js", "dist/json-schema-view.css"],
   "license": "MIT",
   "private": false,
   "ignore": [
