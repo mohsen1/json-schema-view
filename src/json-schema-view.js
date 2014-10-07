@@ -10,6 +10,9 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
      * Recursively walk the schema and add property 'name' to property objects
     */
     function addPropertyName(schema) {
+      if (!schema) {
+        return;
+      }
       if (angular.isObject(schema.items)) {
         addPropertyName(schema.items);
       }
