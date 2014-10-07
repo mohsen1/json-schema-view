@@ -11,12 +11,16 @@ JSON Schema is very verbose and hard to read in JSON. This directive helps rende
 Install via bower
 
 ```shell
-bower install json-schema-view
+bower install json-schema-view --save
 ```
 
 ### Usage
 
 Add it as a dependency to your app and then use `<json-schema-view>` in your HTML as follow
+
+```js
+angular.module('myApp', ['...', 'mohsen1.json-schema-view']);
+```
 
 ```html
 <json-schema-view schema="{name: 'value', type: 'string'}"></json-schema-view>
