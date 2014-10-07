@@ -6,6 +6,23 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = false;
 
+    /*
+     * Recursively walk the schema and add property 'name' to property objects
+    */
+    function addPropertyName(schema) {
+      if (angular.isObject(schema.items)) {
+        addPropertyName(schema.items);
+      }
+      else if (angular.isObject(schema.properties)) {
+        Object.keys(schema.properties).forEach(function (propertyName) {
+          schema.properties[propertyName].name = propertyName;
+          addPropertyName(schema.properties[propertyName]);
+        });
+      }
+    }
+
+    addPropertyName($scope.schema);
+
     if ($scope.schema.type === 'array') {
       $scope.isArray = true;
       $scope.schema = $scope.schema.items;

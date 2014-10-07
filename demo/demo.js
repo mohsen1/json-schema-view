@@ -9,58 +9,49 @@ app.controller('MainCtrl', function ($scope) {
     title: 'Person',
     description: 'A person in our database',
     type: 'object',
-    properties: [
-      {
-        name: 'name',
+    properties: {
+      name: {
         type: 'string'
       },
-      {
-        name: 'age',
+      age: {
         type: 'integer',
         format: 'int64',
         minimum: 0
       },
-      {
-        name: 'email',
+      email: {
         type: 'string'
       },
-      {
-        name: 'single',
+      single: {
         type: 'boolean'
       },
-      {
-        name: 'school',
+      school: {
         type: 'object',
         title: 'School',
         description: 'A School',
-        properties: [
-          {
-            name: 'name',
+        properties: {
+          name: {
             type: 'string'
           },
-          {
-            name: 'district',
+          district: {
             type: 'string'
           }
-        ],
+        },
         required: ['name']
       },
-      {
-        name: 'interests',
+      interests: {
         type: 'array',
         items: {
           title: 'Interest',
           description: 'An interest',
-          properties: [
-            {
-              name: 'name',
+          properties: {
+            name: {
               type: 'string'
             }
-          ],
+          },
           required: ['name']
         }
       }
-    ],
+    },
     required: ['name', 'age']
   };
 });

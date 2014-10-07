@@ -36,7 +36,7 @@ describe('json-schema-view', function () {
 
     it('should put an asterisk next to required properties', function () {
       $rootScope.simpleRequired = {
-        properties: [{type: 'string', name: 'value'}],
+        properties: {value: {type: 'string'}},
         required: ['value']
       };
       element = createDirective('<json-schema-view schema="simpleRequired"></json-schema-view>');

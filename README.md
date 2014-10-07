@@ -23,7 +23,7 @@ angular.module('myApp', ['...', 'mohsen1.json-schema-view']);
 ```
 
 ```html
-<json-schema-view schema="{name: 'value', type: 'string'}"></json-schema-view>
+<json-schema-view schema="{properties: {value: {type: 'string'}}}"></json-schema-view>
 ```
 
 ### Development
