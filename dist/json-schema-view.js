@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.3.2 - 2014-10-07T18:04:18.717Z
+ * Version: 0.3.4 - 2014-10-08T00:00:55.545Z
  * License: MIT
  */
 
@@ -34,7 +34,7 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
 
     addPropertyName($scope.schema);
 
-    if ($scope.schema.type === 'array') {
+    if ($scope.schema && $scope.schema.type === 'array') {
       $scope.isArray = true;
       $scope.schema = $scope.schema.items;
     }

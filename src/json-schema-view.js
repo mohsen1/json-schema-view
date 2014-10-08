@@ -26,7 +26,7 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
 
     addPropertyName($scope.schema);
 
-    if ($scope.schema.type === 'array') {
+    if ($scope.schema && $scope.schema.type === 'array') {
       $scope.isArray = true;
       $scope.schema = $scope.schema.items;
     }
