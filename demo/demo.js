@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('demo', ['ngSanitize', 'mohsen1.json-schema-view']);
+var app = angular.module('demo', ['mohsen1.json-schema-view', 'jsonFormatter']);
 
 app.controller('MainCtrl', function ($scope) {
 

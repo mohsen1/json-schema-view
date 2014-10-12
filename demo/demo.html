@@ -2,29 +2,32 @@
 <html ng-app="demo">
   <head>
     <meta charset="utf-8">
-    <title>AngularJS directive demo</title>
-
-    <!-- TODO: Include Angular from Bower components -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular-sanitize.js"></script>
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.css">
-
+    <title>JSON Schema View directive demo</title>
+    <link rel="stylesheet" href="../bower_components/json-formatter/dist/json-formatter.css">
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../dist/json-schema-view.css">
     <link rel="stylesheet" href="demo.css">
   </head>
   <body ng-controller="MainCtrl">
     <div class="container">
-      <h1 class="text-muted">Demo</h1>
-
+      <h1 class="text-muted">JSON Schema View Demo</h1>
       <div class="usage row">
         <h4>Simple usage</h4>
         <p>This is a simple usage of mohsen1.json-schema-view</p>
         <pre>&lt;json-schema-view schema="sample"&gt;&lt;/json-schema-view&gt;</pre>
-        <h4>Results</h4>
-        <json-schema-view schema="sample"></json-schema-view>
+        <div class="col-md-6">
+          <h4>Results</h4>
+          <json-schema-view schema="sample"></json-schema-view>
+        </div>
+        <div class="col-md-6">
+          <h4>Base JSON</h4>
+          <json-formatter json="sample" open="2"></json-formatter>
+        </div>
       </div>
     </div>
 
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/json-formatter/dist/json-formatter.js"></script>
     <script src="../dist/json-schema-view.js"></script>
     <script src="demo.js"></script>
   </body>
