@@ -24,6 +24,7 @@ app.controller('MainCtrl', function ($scope) {
         }
       }
     },
+
     {
       title: 'Required',
       schema: {
@@ -35,6 +36,7 @@ app.controller('MainCtrl', function ($scope) {
         required: ['account_number']
       }
     },
+
     {
       title: 'Title and Description',
       schema: {
@@ -50,6 +52,7 @@ app.controller('MainCtrl', function ($scope) {
         }
       }
     },
+
     {
       title: 'Format, Minimum and Maximum',
       schema: {
@@ -64,6 +67,7 @@ app.controller('MainCtrl', function ($scope) {
         required: ['account_number']
       }
     },
+
     {
       title: 'Nested Array and Objects',
       schema: {
@@ -92,6 +96,7 @@ app.controller('MainCtrl', function ($scope) {
         }
       }
     },
+
     {
       title: 'Complex',
       schema: {
