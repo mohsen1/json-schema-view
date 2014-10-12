@@ -24,30 +24,21 @@
       </div>
       </p>
 
-      <h3>Types</h3>
-      <div class="usage row">
-        <div class="col-md-6">
-          <h4>Base JSON Schema</h4>
-          <json-formatter json="typesJson" open="3"></json-formatter>
-        </div>
-        <div class="col-md-6">
-          <h4>Result</h4>
-          <json-schema-view schema="types"></json-schema-view>
+      <div ng-repeat="schema in schemas">
+        <h3>{{schema.title}}</h3>
+        <div class="usage row">
+          <div class="col-md-6">
+            <h4>JSON Schema</h4>
+            <json-formatter json="schema.schema" open="3"></json-formatter>
+          </div>
+          <div class="col-md-6">
+            <h4>Result</h4>
+            <json-schema-view schema="schema.schema"></json-schema-view>
+          </div>
         </div>
       </div>
 
-      <h3>Complex</h3>
-      <div class="usage row">
-        <div class="col-md-6">
-          <h4>Base JSON</h4>
-          <json-formatter json="sample" open="2"></json-formatter>
-        </div>
-        <div class="col-md-6">
-          <h4>Results</h4>
-          <json-schema-view schema="sample"></json-schema-view>
-        </div>
-      </div>
-    </div>
+
 
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/json-formatter/dist/json-formatter.js"></script>
