@@ -14,7 +14,7 @@ describe('json-schema-view', function () {
     return elm;
   }
 
-  beforeEach(module('ngSanitize', 'mohsen1.json-schema-view'));
+  beforeEach(window.angular.mock.module('ngSanitize', 'mohsen1.json-schema-view'));
   beforeEach(inject(function(_$rootScope_, _$compile_) {
     $rootScope = _$rootScope_;
     scope = $rootScope.$new();
