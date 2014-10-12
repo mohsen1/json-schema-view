@@ -4,6 +4,18 @@ var app = angular.module('demo', ['mohsen1.json-schema-view', 'jsonFormatter']);
 
 app.controller('MainCtrl', function ($scope) {
 
+  var types = {
+    properties: {
+      name: {
+        type: "string"
+      }
+    }
+  };
+
+  $scope.types = angular.copy(types);
+  $scope.typesJson = angular.copy(types)
+
+
   // A simple schema with only on string property
   $scope.sample = {
     title: 'Person',
