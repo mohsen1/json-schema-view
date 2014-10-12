@@ -23,17 +23,28 @@
         </div>
       </div>
       </p>
+
+      <h3>Types</h3>
       <div class="usage row">
-        <h4>Simple usage</h4>
-        <p>This is a simple usage of mohsen1.json-schema-view</p>
-        <pre>&lt;json-schema-view schema="sample"&gt;&lt;/json-schema-view&gt;</pre>
         <div class="col-md-6">
-          <h4>Results</h4>
-          <json-schema-view schema="sample"></json-schema-view>
+          <h4>Base JSON Schema</h4>
+          <json-formatter json="typesJson" open="3"></json-formatter>
         </div>
+        <div class="col-md-6">
+          <h4>Result</h4>
+          <json-schema-view schema="types"></json-schema-view>
+        </div>
+      </div>
+
+      <h3>Complex</h3>
+      <div class="usage row">
         <div class="col-md-6">
           <h4>Base JSON</h4>
           <json-formatter json="sample" open="2"></json-formatter>
+        </div>
+        <div class="col-md-6">
+          <h4>Results</h4>
+          <json-schema-view schema="sample"></json-schema-view>
         </div>
       </div>
     </div>
