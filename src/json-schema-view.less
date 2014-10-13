@@ -2,14 +2,16 @@
   font-family: monospace;
   font-size: 0;
   display: table-cell;
+  @indent: 18px;
+  @font-size: 14px;
+  @bold-color: #333;
+  @required: #F00;
 
-  .json-schema-view {
-    margin-left: 14px;
-  }
 
   >*{
-    font-size: 14px;
+    font-size: @font-size;
   }
+
 
   .toggler {
     cursor: pointer;
@@ -25,19 +27,13 @@
 
     &, &:hover {
       text-decoration: none;
-      color: #333;
+      color: @bold-color;
     }
-  }
-
-  .brace {
-    margin: auto .1em;
-    margin-left: 14px;
   }
 
   .description {
     color: gray;
     font-style: italic;
-    margin-left: 14px;
   }
 
   .title {
@@ -45,7 +41,7 @@
     cursor: pointer;
     &, &:hover {
       text-decoration: none;
-      color: #333;
+      color: @bold-color;
     }
   }
 
@@ -54,14 +50,13 @@
     display: table-row;
 
     >*{
-      font-size: 14px;
+      font-size: @font-size;
       padding: .2em;
     }
 
   }
 
   .name {
-    padding-left: 14px;
     color: blue;
     display: table-cell;
     vertical-align: top;
@@ -72,7 +67,11 @@
   }
 
   .required {
-    color: red;
+    color: @required;
+  }
+
+  .inner {
+    padding-left: @indent;
   }
 
   &.collapsed {

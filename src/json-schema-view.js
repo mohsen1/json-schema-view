@@ -35,6 +35,14 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
 
       return false;
     };
+
+    /*
+     * Returns true if the schema is too simple to be collapsible
+    */
+    $scope.isPrimitiveCollapsible = function() {
+      return $scope.schema.description ||
+        $scope.schema.title;
+    };
   }
 
   return {
