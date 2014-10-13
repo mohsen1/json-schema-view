@@ -59,7 +59,7 @@ app.controller('MainCtrl', function ($scope) {
         properties: {
           account_number: {
             type: 'integer',
-            fotmat: 'int64',
+            format: 'int64',
             minimum: '400000',
             maximum: '900000'
           }
