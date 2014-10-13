@@ -1,20 +1,25 @@
 <div class="json-schema-view" ng-class="{collapsed: isCollapsed}">
-  <a class="toggler" ng-click="toggle()"></a>
+
+  <span class="primitive" ng-if="isPrimitive">
+    <span class="type">{{schema.type}}</span>
+    <span class="required" ng-if="isRequired(schema)">*</span>
+    <span class="format" ng-if="!isCollapsed && schema.format">({{schema.format}})</span>
+    <span class="range minimum" ng-if="!isCollapsed && schema.minimum">minimum:{{schema.minimum}}</span>
+    <span class="range maximum" ng-if="!isCollapsed && schema.maximum">maximum:{{schema.maximum}}</span>
+  </span>
+
+  <a class="toggler" ng-click="toggle()" ng-if="!isPrimitive"></a>
   <span class="title" ng-click="toggle()">
     <span ng-if="isArray" class="array-of">[</span>
     {{schema.title}}
   </span>
-  <span class="opening brace">{</span>
+
+  <span class="opening brace" ng-if="!isPrimitive">{</span>
   <div class="description">{{schema.description}}</div>
-  <div class="property" ng-repeat="property in schema.properties">
-    <span class="name">{{property.name}}:</span>
-
-    <!-- Primitive -->
-    <primitive-property ng-if="isPrimitive(property)" property="property"></primitive-property>
-
-    <!-- Array and Object -->
-    <json-schema-view ng-if="!isPrimitive(property)" schema="property"></json-schema-view>
+  <div class="property" ng-repeat="(propertyName, property) in schema.properties">
+    <span class="name">{{propertyName}}:</span>
+    <json-schema-view schema="property"></json-schema-view>
   </div>
-  <span class="closeing brace">}</span>
+  <span class="closeing brace" ng-if="!isPrimitive">}</span>
   <span ng-if="isArray" class="array-of">]</span>
 </div>

@@ -6,30 +6,15 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = false;
 
-    /*
-     * Recursively walk the schema and add property 'name' to property objects
-    */
-    function addPropertyName(schema) {
-      if (!schema) {
-        return;
-      }
-      if (angular.isObject(schema.items)) {
-        addPropertyName(schema.items);
-      }
-      else if (angular.isObject(schema.properties)) {
-        Object.keys(schema.properties).forEach(function (propertyName) {
-          schema.properties[propertyName].name = propertyName;
-          addPropertyName(schema.properties[propertyName]);
-        });
-      }
-    }
+    // Determine if a schema is an array
+    $scope.isArray = $scope.schema && $scope.schema.type === 'array';
 
-    addPropertyName($scope.schema);
-
-    if ($scope.schema && $scope.schema.type === 'array') {
-      $scope.isArray = true;
-      $scope.schema = $scope.schema.items;
-    }
+    // Determine if a schema is a primitive
+    $scope.isPrimitive = $scope.schema &&
+      !$scope.schema.properties &&
+      !$scope.schema.items &&
+      $scope.schema.type !== 'array' &&
+      $scope.schema.type !== 'object';
 
     /*
      * Toggles the 'collapsed' state
@@ -39,57 +24,25 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
     };
 
     /*
-     * Determines if a property is a primitive
+     * Returns true if property is required in given schema
     */
-    $scope.isPrimitive = function(property){
-      return ['string', 'boolean', 'integer', 'int'].indexOf(property.type) > -1;
+    $scope.isRequired = function(schema) {
+      var parent = $scope.$parent.schema;
+
+      if (parent && Array.isArray(parent.required) && schema.name) {
+        return parent.required.indexOf(schema.name) > -1;
+      }
+
+      return false;
     };
   }
+
   return {
     restrict: 'E',
     templateUrl: 'json-schema-view.html',
     replcae: true,
     scope: {
       'schema': '='
-    },
-    compile: function(element) {
-
-      // Use the compile function from the RecursionHelper,
-      // And return the linking function(s) which it returns
-      return RecursionHelper.compile(element, link);
-    }
-  };
-});
-
-module.directive('primitiveProperty', function (RecursionHelper) {
-  function link($scope) {
-
-    /*
-     * Returns true if property is required in given schema
-    */
-    $scope.isRequired = function(property, schema) {
-      schema = schema || $scope.$parent.schema;
-
-      if (Array.isArray(schema.required) && property.name) {
-        return schema.required.indexOf(property.name) > -1;
-      }
-
-      return false;
-    };
-
-    /*
-     * Checks and see if an object (_obj_) has a member with _propName_ name
-    */
-    $scope.has = function(obj, propName) {
-      return Object.keys(obj).indexOf(propName) > -1;
-    };
-    }
-  return {
-    restrict: 'E',
-    templateUrl: 'primitive.html',
-    replcae: true,
-    scope: {
-      property: '='
     },
     compile: function(element) {
 
