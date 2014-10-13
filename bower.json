@@ -1,7 +1,7 @@
 {
   "name": "json-schema-view",
   "repositiory": "mohsen1/json-schema-view",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "authors": [
     "Mohsen Azimi <msn.azi@gmail.com>"
   ],
@@ -19,8 +19,7 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "angular": "~1.2.26",
     "jquery": "~2.1.1",
