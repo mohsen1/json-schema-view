@@ -31,6 +31,7 @@
 
   .brace {
     margin: auto .1em;
+    margin-left: 14px;
   }
 
   .description {
@@ -42,6 +43,10 @@
   .title {
     font-weight: bold;
     cursor: pointer;
+    &, &:hover {
+      text-decoration: none;
+      color: #333;
+    }
   }
 
   .property {
@@ -53,18 +58,21 @@
       padding: .2em;
     }
 
-    .name {
-      padding-left: 14px;
-      color: blue;
-      display: table-cell;
-      vertical-align: top;
-    }
-    .type {
-      color: green;
-    }
-    .required {
-      color: red;
-    }
+  }
+
+  .name {
+    padding-left: 14px;
+    color: blue;
+    display: table-cell;
+    vertical-align: top;
+  }
+
+  .type {
+    color: green;
+  }
+
+  .required {
+    color: red;
   }
 
   &.collapsed {

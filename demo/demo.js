@@ -8,12 +8,18 @@ app.controller('MainCtrl', function ($scope) {
     {
       title: 'Simple',
       schema: {
+        title: 'Name',
+        description: 'A name',
         type: "string"
       }
     },
+
     {
       title: 'Object',
       schema: {
+        type: 'object',
+        title: 'Person',
+        description: 'A simple person object',
         properties: {
           name: {
             type: 'string'
@@ -21,6 +27,18 @@ app.controller('MainCtrl', function ($scope) {
           age: {
             type: 'integer'
           }
+        }
+      }
+    },
+
+   {
+      title: 'Array',
+      schema: {
+        type: 'array',
+        title: 'Names',
+        description: 'An array of names',
+        items: {
+          type: 'string'
         }
       }
     },
@@ -78,7 +96,9 @@ app.controller('MainCtrl', function ($scope) {
           },
           students: {
             type: 'array',
-            items: 'integer'
+            items: {
+              type: 'integer'
+            }
           },
           classes: {
             type: 'array',
