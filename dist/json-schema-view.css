@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.3.5 - 2014-10-13T00:43:48.313Z
+ * Version: 0.3.5 - 2014-10-13T01:10:17.396Z
  * License: MIT
  */
 
@@ -11,10 +11,6 @@ json-schema-view {
   font-family: monospace;
   font-size: 0;
   display: table-cell;
-}
-.json-schema-view .json-schema-view,
-json-schema-view .json-schema-view {
-  margin-left: 14px;
 }
 .json-schema-view > *,
 json-schema-view > * {
@@ -38,18 +34,12 @@ json-schema-view .toggler,
 .json-schema-view .toggler:hover,
 json-schema-view .toggler:hover {
   text-decoration: none;
-  color: #333;
-}
-.json-schema-view .brace,
-json-schema-view .brace {
-  margin: auto .1em;
-  margin-left: 14px;
+  color: #333333;
 }
 .json-schema-view .description,
 json-schema-view .description {
   color: gray;
   font-style: italic;
-  margin-left: 14px;
 }
 .json-schema-view .title,
 json-schema-view .title {
@@ -61,7 +51,7 @@ json-schema-view .title,
 .json-schema-view .title:hover,
 json-schema-view .title:hover {
   text-decoration: none;
-  color: #333;
+  color: #333333;
 }
 .json-schema-view .property,
 json-schema-view .property {
@@ -75,7 +65,6 @@ json-schema-view .property > * {
 }
 .json-schema-view .name,
 json-schema-view .name {
-  padding-left: 14px;
   color: blue;
   display: table-cell;
   vertical-align: top;
@@ -86,7 +75,11 @@ json-schema-view .type {
 }
 .json-schema-view .required,
 json-schema-view .required {
-  color: red;
+  color: #ff0000;
+}
+.json-schema-view .inner,
+json-schema-view .inner {
+  padding-left: 18px;
 }
 .json-schema-view.collapsed .description,
 json-schema-view.collapsed .description {

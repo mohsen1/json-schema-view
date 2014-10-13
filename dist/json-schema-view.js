@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.3.5 - 2014-10-13T00:43:33.132Z
+ * Version: 0.3.5 - 2014-10-13T01:05:38.388Z
  * License: MIT
  */
 
@@ -42,6 +42,14 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
       }
 
       return false;
+    };
+
+    /*
+     * Returns true if the schema is too simple to be collapsible
+    */
+    $scope.isPrimitiveCollapsible = function() {
+      return $scope.schema.description ||
+        $scope.schema.title;
     };
   }
 
@@ -106,4 +114,4 @@ angular.module('RecursionHelper', []).factory('RecursionHelper', ['$compile', fu
   };
 }]);
 
-angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><a class=\"toggler\" ng-click=\"toggle()\"></a><span class=\"primitive\" ng-if=\"isPrimitive\"><a class=\"title\" ng-click=\"toggle()\">{{schema.title}}</a> <span class=\"type\">{{schema.type}}</span> <span class=\"required\" ng-if=\"isRequired(schema)\">*</span> <span class=\"format\" ng-if=\"!isCollapsed && schema.format\">({{schema.format}})</span> <span class=\"range minimum\" ng-if=\"!isCollapsed && schema.minimum\">minimum:{{schema.minimum}}</span> <span class=\"range maximum\" ng-if=\"!isCollapsed && schema.maximum\">maximum:{{schema.maximum}}</span><div class=\"description\">{{schema.description}}</div></span><span ng-if=\"isArray\" class=\"array\"><a class=\"title\" ng-click=\"toggle()\">{{schema.title}}</a> <span class=\"array-of\">[</span><div class=\"description\">{{schema.description}}</div><json-schema-view schema=\"schema.items\"></json-schema-view><span class=\"array-of\">]</span></span><span ng-if=\"!isPrimitive && !isArray\" class=\"object\"><a class=\"title\" ng-click=\"toggle()\">{{schema.title}}</a> <span class=\"opening brace\">{</span><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"(propertyName, property) in schema.properties\"><span class=\"name\">{{propertyName}}:</span><json-schema-view schema=\"property\"></json-schema-view></div><span class=\"closeing brace\">}</span></span></div>");}]);
+angular.module("mohsen1.json-schema-view").run(["$templateCache", function($templateCache) {$templateCache.put("json-schema-view.html","<div class=\"json-schema-view\" ng-class=\"{collapsed: isCollapsed}\"><div class=\"primitive\" ng-if=\"isPrimitive\"><a class=\"title\" ng-click=\"toggle()\"><span class=\"toggler\" ng-if=\"isPrimitiveCollapsible()\"></span>{{schema.title}}</a> <span class=\"type\">{{schema.type}}</span> <span class=\"required\" ng-if=\"isRequired(schema)\">*</span> <span class=\"format\" ng-if=\"!isCollapsed && schema.format\">({{schema.format}})</span> <span class=\"range minimum\" ng-if=\"!isCollapsed && schema.minimum\">minimum:{{schema.minimum}}</span> <span class=\"range maximum\" ng-if=\"!isCollapsed && schema.maximum\">maximum:{{schema.maximum}}</span><div class=\"description\">{{schema.description}}</div></div><div ng-if=\"isArray\" class=\"array\"><a class=\"title\" ng-click=\"toggle()\"><span class=\"toggler\"></span>{{schema.title}} <span class=\"opening bracket\">[</span><span class=\"closing bracket\" ng-if=\"isCollapsed\">]</span></a><div class=\"inner\"><div class=\"description\">{{schema.description}}</div><json-schema-view ng-if=\"!isCollapsed\" schema=\"schema.items\"></json-schema-view></div><span class=\"closing bracket\" ng-if=\"!isCollapsed\">]</span></div><div ng-if=\"!isPrimitive && !isArray\" class=\"object\"><a class=\"title\" ng-click=\"toggle()\"><span class=\"toggler\"></span>{{schema.title}} <span class=\"opening brace\">{</span><span class=\"closing brace\" ng-if=\"isCollapsed\">}</span></a><div class=\"inner\"><div class=\"description\">{{schema.description}}</div><div class=\"property\" ng-repeat=\"(propertyName, property) in schema.properties\"><span class=\"name\">{{propertyName}}:</span><json-schema-view schema=\"property\"></json-schema-view></div></div><span class=\"closeing brace\" ng-if=\"!isCollapsed\">}</span></div></div>");}]);
