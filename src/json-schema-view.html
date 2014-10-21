@@ -21,7 +21,7 @@
     </a>
     <div class="inner">
       <div class="description">{{schema.description}}</div>
-      <json-schema-view ng-if="!isCollapsed" schema="schema.items"></json-schema-view>
+      <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1"></json-schema-view>
     </div>
     <span class="closing bracket" ng-if="!isCollapsed">]</span>
   </div>
@@ -37,7 +37,7 @@
       <div class="description">{{schema.description}}</div>
       <div class="property" ng-repeat="(propertyName, property) in schema.properties">
         <span class="name">{{propertyName}}:</span>
-        <json-schema-view schema="property"></json-schema-view>
+        <json-schema-view schema="property" open="open - 1"></json-schema-view>
       </div>
     </div>
     <span class="closeing brace" ng-if="!isCollapsed">}</span>
