@@ -4,7 +4,7 @@ var module = angular.module('mohsen1.json-schema-view', ['RecursionHelper']);
 
 module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
-    $scope.isCollapsed = false;
+    $scope.isCollapsed = $scope.open < 1;
 
     // Determine if a schema is an array
     $scope.isArray = $scope.schema && $scope.schema.type === 'array';
@@ -50,7 +50,8 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
     templateUrl: 'json-schema-view.html',
     replcae: true,
     scope: {
-      'schema': '='
+      'schema': '=',
+      'open': '='
     },
     compile: function(element) {
 

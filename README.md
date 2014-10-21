@@ -18,15 +18,18 @@ bower install json-schema-view --save
 
 ### Usage
 
-Add it as a dependency to your app and then use `<json-schema-view>` in your HTML as follow
+Add it as a dependency to your app and then use `<json-schema-view>` in your HTML as following
 
 ```js
 angular.module('myApp', ['...', 'mohsen1.json-schema-view']);
 ```
 
 ```html
-<json-schema-view schema="{properties: {value: {type: 'string'}}}"></json-schema-view>
+<json-schema-view schema="{properties: {value: {type: 'string'}}}" open="2"></json-schema-view>
 ```
+
+* **`schema`**(**required**) attribute will accepts a schema object 
+* **`open`** attribute accepts a number that indicates how many levels deep the schema should be open
 
 ### Development
 

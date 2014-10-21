@@ -118,6 +118,33 @@ app.controller('MainCtrl', function ($scope) {
     },
 
     {
+        title: 'Deep',
+        schema: {
+            title: 'Level 1',
+            properties: {
+                child: {
+                    title: 'Level 2',
+                    properties: {
+                        child: {
+                            title: 'Level 3',
+                            properties: {
+                                child: {
+                                    title: 'Level 4',
+                                    properties: {
+                                        value: {
+                                            type: 'string'
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+
+    {
       title: 'Complex',
       schema: {
         title: 'Person',
