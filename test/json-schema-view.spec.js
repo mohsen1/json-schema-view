@@ -27,8 +27,8 @@ describe('json-schema-view', function () {
 
   describe('simple schema', function (){
     it('should render property name and type', function () {
-      $rootScope.simple = {properties: [{type: 'string', name: 'value'}]};
-      element = createDirective('<json-schema-view schema="simple"></json-schema-view>');
+      $rootScope.simple = {properties: [{type: 'string', description: 'value'}]};
+      element = createDirective('<json-schema-view schema="simple" open="1"></json-schema-view>');
 
       expect(element.text()).toContain('string');
       expect(element.text()).toContain('value');
