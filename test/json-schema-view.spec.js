@@ -44,7 +44,7 @@ describe('json-schema-view', function () {
     });
   });
 
-  describe('schema with minimum and maximum', function (){
+  describe('schema with value constraints', function (){
     it('should render minimum and maximum', function () {
       $rootScope.maxandmin = {
         properties: [
@@ -56,6 +56,19 @@ describe('json-schema-view', function () {
 
       expect(element.text()).toContain('minimum:10');
       expect(element.text()).toContain('maximum:13');
+    });
+
+    it('should render minLength and maxLength', function () {
+      $rootScope.maxandminlength = {
+        properties: [
+          {type: 'string', minLength: 5, maxLength: 20}
+        ]
+      };
+
+      element = createDirective('<json-schema-view schema="maxandminlength" open="1"></json-schema-view>');
+
+      expect(element.text()).toContain('minLength:5');
+      expect(element.text()).toContain('maxLength:20');
     });
   });
 });
