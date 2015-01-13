@@ -44,4 +44,18 @@ describe('json-schema-view', function () {
     });
   });
 
+  describe('schema with minimum and maximum', function (){
+    it('should render minimum and maximum', function () {
+      $rootScope.maxandmin = {
+        properties: [
+          {type: 'integer', format: 'int32', minimum: 10, maximum: 13}
+        ]
+      };
+
+      element = createDirective('<json-schema-view schema="maxandmin" open="1"></json-schema-view>');
+
+      expect(element.text()).toContain('minimum:10');
+      expect(element.text()).toContain('maximum:13');
+    });
+  });
 });

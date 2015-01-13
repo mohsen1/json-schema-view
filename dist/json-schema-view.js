@@ -12,7 +12,7 @@ var module = angular.module('mohsen1.json-schema-view', ['RecursionHelper']);
 
 module.directive('jsonSchemaView', function (RecursionHelper) {
   function link($scope) {
-    $scope.isCollapsed = $scope.open < 1;
+    $scope.isCollapsed = $scope.open < 0;
 
     /*
      * Recursively walk the schema and add property 'name' to property objects
