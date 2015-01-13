@@ -78,8 +78,8 @@ app.controller('MainCtrl', function ($scope) {
           account_number: {
             type: 'integer',
             format: 'int64',
-            minimum: '400000',
-            maximum: '900000'
+            minimum: 400000,
+            maximum: 900000
           }
         },
         required: ['account_number']
