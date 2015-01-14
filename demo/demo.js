@@ -72,14 +72,19 @@ app.controller('MainCtrl', function ($scope) {
     },
 
     {
-      title: 'Format, Minimum and Maximum',
+      title: 'Format, Minimum, Maximum, MinLength, and MaxLength',
       schema: {
         properties: {
           account_number: {
             type: 'integer',
             format: 'int64',
-            minimum: '400000',
-            maximum: '900000'
+            minimum: 400000,
+            maximum: 900000
+          },
+          bank_name: {
+            type: 'string',
+            minLength: 5,
+            maxLength: 100
           }
         },
         required: ['account_number']
