@@ -138,4 +138,4 @@ function handleError(err) {
 gulp.task('build', ['clean', 'scripts', 'styles']);
 gulp.task('serve', ['build', 'connect', 'watch', 'open']);
 gulp.task('default', ['build', 'test']);
-gulp.task('test', ['build', 'jshint', 'karma']);
+gulp.task('test', ['build', 'karma']);
