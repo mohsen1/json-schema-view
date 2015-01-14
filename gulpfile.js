@@ -127,6 +127,13 @@ gulp.task('karma', function(done) {
   }, done);
 });
 
+gulp.task('karma-single', function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
+});
+
 function handleError(err) {
   /* jshint validthis: true */
 
@@ -137,4 +144,4 @@ function handleError(err) {
 gulp.task('build', ['clean', 'scripts', 'styles']);
 gulp.task('serve', ['build', 'test', 'connect', 'watch', 'open']);
 gulp.task('default', ['build', 'test']);
-gulp.task('test', ['build', 'karma']);
+gulp.task('test', ['build', 'karma-single']);
