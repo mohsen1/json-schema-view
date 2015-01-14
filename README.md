@@ -42,9 +42,8 @@ npm install -g gulp
 
 * `gulp`: build and test the project
 * `gulp build`: build the project and make new files in`dist`
-* `gulp serve`: start a server to serve the demo page and launch a browser then watches for changes in `src` files to reload the page
+* `gulp serve`: start a server to serve the demo page and launch a browser then watches for changes in `src` files to reload the page. It also runs tests and keep test browser open for development. Watches for changes in source and test files to re-run the tests
 * `gulp test`: run tests
-* `gulp serve-test`: runs tests and keep test browser open for development. Watches for changes in source and test files to re-run the tests
 
 ### License
 MIT

@@ -113,7 +113,7 @@ gulp.task('watch', function() {
   gulp.watch(['./demo/**/*.html'], ['html']);
   gulp.watch(['**/*.less'], ['styles']);
   gulp.watch(['./src/**/*.js', './demo/**/*.js', './**/*.html'], ['scripts']);
-  gulp.watch(['./**/*'], ['karma']);
+  gulp.watch(['src/**/*', 'test/**/*'], ['karma']);
 });
 
 gulp.task('open', function() {
@@ -123,8 +123,7 @@ gulp.task('open', function() {
 
 gulp.task('karma', function(done) {
   karma.start({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: true
+    configFile: __dirname + '/karma.conf.js'
   }, done);
 });
 
@@ -136,6 +135,6 @@ function handleError(err) {
 }
 
 gulp.task('build', ['clean', 'scripts', 'styles']);
-gulp.task('serve', ['build', 'connect', 'watch', 'open']);
+gulp.task('serve', ['build', 'test', 'connect', 'watch', 'open']);
 gulp.task('default', ['build', 'test']);
 gulp.task('test', ['build', 'karma']);
