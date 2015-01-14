@@ -1,5 +1,7 @@
 # JSON Schema View
 
+[![Build Status](https://travis-ci.org/mohsen1/json-schema-view.svg?branch=v0.4.0)](https://travis-ci.org/mohsen1/json-schema-view)
+
 **An AngularJS directive for rendering JSON Schema in HTML.**
 
 JSON Schema is very verbose and hard to read in JSON. This directive helps rendering a JSON Schema in a user readable format.
