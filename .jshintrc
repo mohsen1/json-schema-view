@@ -16,6 +16,8 @@
   "sub": true,
   "undef": true,
   "indent": 2,
+  "node": true,
+  "browser": true,
   "globals": {
     "angular": true
   }

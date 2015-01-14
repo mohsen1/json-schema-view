@@ -1,8 +1,8 @@
 'use strict';
 
-var module = angular.module('mohsen1.json-schema-view', ['RecursionHelper']);
+angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
 
-module.directive('jsonSchemaView', function (RecursionHelper) {
+.directive('jsonSchemaView', function(RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = $scope.open < 0;
 
@@ -17,7 +17,7 @@ module.directive('jsonSchemaView', function (RecursionHelper) {
         addPropertyName(schema.items);
       }
       else if (angular.isObject(schema.properties)) {
-        Object.keys(schema.properties).forEach(function (propertyName) {
+        Object.keys(schema.properties).forEach(function(propertyName) {
           schema.properties[propertyName].name = propertyName;
           addPropertyName(schema.properties[propertyName]);
         });

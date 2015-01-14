@@ -2,7 +2,7 @@
 
 var app = angular.module('demo', ['mohsen1.json-schema-view', 'jsonFormatter']);
 
-app.controller('MainCtrl', function ($scope) {
+app.controller('MainCtrl', function($scope) {
 
   $scope.schemas = [
     {
@@ -10,7 +10,7 @@ app.controller('MainCtrl', function ($scope) {
       schema: {
         title: 'Name',
         description: 'A name',
-        type: "string"
+        type: 'string'
       }
     },
 
@@ -47,11 +47,11 @@ app.controller('MainCtrl', function ($scope) {
       title: 'Required',
       schema: {
         properties: {
-          account_number: {
+          accountNumber: {
             type: 'integer'
           }
         },
-        required: ['account_number']
+        required: ['accountNumber']
       }
     },
 
@@ -75,19 +75,19 @@ app.controller('MainCtrl', function ($scope) {
       title: 'Format, Minimum, Maximum, MinLength, and MaxLength',
       schema: {
         properties: {
-          account_number: {
+          accountNumber: {
             type: 'integer',
             format: 'int64',
             minimum: 400000,
             maximum: 900000
           },
-          bank_name: {
+          bankName: {
             type: 'string',
             minLength: 5,
             maxLength: 100
           }
         },
-        required: ['account_number']
+        required: ['accountNumber']
       }
     },
 
