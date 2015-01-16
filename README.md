@@ -1,6 +1,6 @@
 # JSON Schema View
 
-[![Build Status](https://travis-ci.org/mohsen1/json-schema-view.svg?branch=v0.4.0)](https://travis-ci.org/mohsen1/json-schema-view)
+[![Build Status](https://travis-ci.org/mohsen1/json-schema-view.svg?branch=master)](https://travis-ci.org/mohsen1/json-schema-view)
 
 **An AngularJS directive for rendering JSON Schema in HTML.**
 
