@@ -8,7 +8,9 @@
     <span class="required" ng-if="isRequired(schema)">*</span>
     <span class="format" ng-if="!isCollapsed && schema.format">({{schema.format}})</span>
     <span class="range minimum" ng-if="!isCollapsed && schema.minimum">minimum:{{schema.minimum}}</span>
+    <span class="range exclusiveMinimum" ng-if="!isCollapsed && schema.exclusiveMinimum">(ex)minimum:{{schema.exclusiveMinimum}}</span>
     <span class="range maximum" ng-if="!isCollapsed && schema.maximum">maximum:{{schema.maximum}}</span>
+    <span class="range exclusiveMaximum" ng-if="!isCollapsed && schema.exclusiveMaximum">(ex)maximum:{{schema.exclusiveMaximum}}</span>
     <span class="range minLength" ng-if="!isCollapsed && schema.minLength">minLength:{{schema.minLength}}</span>
     <span class="range maxLength" ng-if="!isCollapsed && schema.maxLength">maxLength:{{schema.maxLength}}</span>
     <div class="inner description">{{schema.description}}</div>
