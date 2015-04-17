@@ -63,6 +63,13 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
       return $scope.schema.description ||
         $scope.schema.title;
     };
+
+    /*
+     * Converts anyOf, allOf and oneOf to human readable string
+    */
+    $scope.convertXOf = function(type) {
+      return type.substring(0, 3) + ' of';
+    };
   }
 
   return {

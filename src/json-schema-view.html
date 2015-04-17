@@ -15,6 +15,9 @@
     <span class="range maxLength" ng-if="!isCollapsed && schema.maxLength">maxLength:{{schema.maxLength}}</span>
     <div class="inner description">{{schema.description}}</div>
     <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.allOf" onload="type = 'allOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.anyOf" onload="type = 'anyOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.oneOf" onload="type = 'oneOf'"></div>
   </div>
 
 
@@ -32,6 +35,9 @@
       <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1"></json-schema-view>
     </div>
     <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.allOf" onload="type = 'allOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.anyOf" onload="type = 'anyOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.oneOf" onload="type = 'oneOf'"></div>
     <span class="closing bracket" ng-if="!isCollapsed">]</span>
   </div>
 
@@ -50,6 +56,9 @@
       </div>
     </div>
     <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.allOf" onload="type = 'allOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.anyOf" onload="type = 'anyOf'"></div>
+    <div ng-include="'x_of.html'" ng-if="schema.oneOf" onload="type = 'oneOf'"></div>
     <span class="closeing brace" ng-if="!isCollapsed">}</span>
   </div>
 </div>
