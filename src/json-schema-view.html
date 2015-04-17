@@ -21,6 +21,10 @@
     <a class="title" ng-click="toggle()"><span
       class="toggle-handle"></span>{{schema.title}} <span class="opening bracket">[</span><span class="closing bracket" ng-if="isCollapsed">]</span>
     </a>
+    <span ng-if="!isCollapsed && (schema.uniqueItems || schema.minItems || schema.maxItems)">
+      <span title="items range">({{schema.minItems || 0}}..{{schema.maxItems || '∞'}})</span>
+      <span title="unique" class="uniqueItems" ng-if="!isCollapsed && schema.uniqueItems">♦</span>
+    </span>
     <div class="inner">
       <div class="description">{{schema.description}}</div>
       <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1"></json-schema-view>

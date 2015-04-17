@@ -248,6 +248,20 @@ app.controller('MainCtrl', function($scope) {
         },
         required: ['name', 'age']
       }
+    },
+
+    {
+      title: 'Complex Array',
+      schema: {
+        title: 'ComplexArray',
+        type: 'array',
+        minItems: 1,
+        maxItems: 100,
+        uniqueItems: true,
+        items: {
+          type: 'string'
+        }
+      }
     }
   ];
 });
