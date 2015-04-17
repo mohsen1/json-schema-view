@@ -44,6 +44,54 @@ app.controller('MainCtrl', function($scope) {
     },
 
     {
+      title: 'Primitive Enum',
+      schema: {
+        description: 'This string can only be one of predefined values',
+        type: 'string',
+        enum: ['one', 'two', 'three']
+      }
+    },
+
+    {
+      title: 'Object Enum',
+      schema: {
+        description: 'Car can only be one of two available options',
+        type: 'object',
+        title: 'Car',
+        properties: {
+          make: {type: 'string'},
+          model: {type: 'string'}
+        },
+        enum: [
+          {
+            make: 'Toyota',
+            model: 'Camry'
+          },
+          {
+            make: 'Nissan',
+            model: 'Rouge'
+          }
+        ]
+      }
+    },
+
+    {
+      title: 'Array Enum',
+      schema: {
+        description: 'ways to count 10 items',
+        title: 'Numbers',
+        type: 'array',
+        maxItems: 10,
+        minItems: 10,
+        items: {type: 'string'},
+        enum: [
+          ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'],
+          ['alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'eta', 'theta', 'iota', 'kappa']
+        ]
+      }
+    },
+
+    {
       title: 'Required',
       schema: {
         properties: {
