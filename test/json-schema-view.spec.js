@@ -78,4 +78,22 @@ describe('json-schema-view', function() {
       expect(element.text()).toContain('maxLength:20');
     });
   });
+
+  // There is an issue in compile. TODO: enable me
+  xdescribe('primitive enums', function() {
+    it('should not render emums when it is not open', function() {
+      $rootScope.enums = {type: 'string', enum: ['one', 'two', 'three']};
+      element = createDirective(
+        '<json-schema-view schema="enums" open="0"></json-schema-view>');
+
+      expect(element.text()).not.toContain('Enum');
+    });
+    it('should render emums when it is open', function() {
+      $rootScope.enums = {type: 'string', enum: ['one', 'two', 'three']};
+      element = createDirective(
+        '<json-schema-view schema="enums" open="1"></json-schema-view>');
+
+      expect(element.text()).toContain('Enum');
+    });
+  });
 });

@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.3.9 - 2015-01-14T06:36:20.883Z
+ * Version: 0.4.0 - 2015-04-17T19:29:44.699Z
  * License: MIT
  */
 
@@ -16,8 +16,8 @@ json-schema-view {
 json-schema-view > * {
   font-size: 14px;
 }
-.json-schema-view .toggler,
-json-schema-view .toggler {
+.json-schema-view .toggle-handle,
+json-schema-view .toggle-handle {
   cursor: pointer;
   margin: auto .3em;
   font-size: 10px;
@@ -25,14 +25,14 @@ json-schema-view .toggler {
   transform-origin: 50% 40%;
   transition: transform 150ms ease-in;
 }
-.json-schema-view .toggler:after,
-json-schema-view .toggler:after {
+.json-schema-view .toggle-handle:after,
+json-schema-view .toggle-handle:after {
   content: "▼";
 }
-.json-schema-view .toggler,
-json-schema-view .toggler,
-.json-schema-view .toggler:hover,
-json-schema-view .toggler:hover {
+.json-schema-view .toggle-handle,
+json-schema-view .toggle-handle,
+.json-schema-view .toggle-handle:hover,
+json-schema-view .toggle-handle:hover {
   text-decoration: none;
   color: #333333;
 }

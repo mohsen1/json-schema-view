@@ -2,7 +2,7 @@
 
   <!-- Primitive -->
   <div class="primitive" ng-if="isPrimitive">
-    <a class="title" ng-click="toggle()"><span class="toggler"
+    <a class="title" ng-click="toggle()"><span class="toggle-handle"
       ng-if="isPrimitiveCollapsible()"></span>{{schema.title}}</a>
     <span class="type">{{schema.type}}</span>
     <span class="required" ng-if="isRequired(schema)">*</span>
@@ -11,26 +11,28 @@
     <span class="range maximum" ng-if="!isCollapsed && schema.maximum">maximum:{{schema.maximum}}</span>
     <span class="range minLength" ng-if="!isCollapsed && schema.minLength">minLength:{{schema.minLength}}</span>
     <span class="range maxLength" ng-if="!isCollapsed && schema.maxLength">maxLength:{{schema.maxLength}}</span>
-    <div class="description">{{schema.description}}</div>
+    <div class="inner description">{{schema.description}}</div>
+    <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
   </div>
 
 
   <!-- Array -->
   <div ng-if="isArray" class="array">
     <a class="title" ng-click="toggle()"><span
-      class="toggler"></span>{{schema.title}} <span class="opening bracket">[</span><span class="closing bracket" ng-if="isCollapsed">]</span>
+      class="toggle-handle"></span>{{schema.title}} <span class="opening bracket">[</span><span class="closing bracket" ng-if="isCollapsed">]</span>
     </a>
     <div class="inner">
       <div class="description">{{schema.description}}</div>
       <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1"></json-schema-view>
     </div>
+    <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
     <span class="closing bracket" ng-if="!isCollapsed">]</span>
   </div>
 
   <!-- Object -->
   <div ng-if="!isPrimitive && !isArray" class="object">
     <a class="title" ng-click="toggle()"><span
-      class="toggler"></span>{{schema.title}} <span
+      class="toggle-handle"></span>{{schema.title}} <span
       class="opening brace">{</span><span class="closing brace" ng-if="isCollapsed">}</span>
     </a>
 
@@ -41,6 +43,7 @@
         <json-schema-view schema="property" open="open - 1"></json-schema-view>
       </div>
     </div>
+    <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
     <span class="closeing brace" ng-if="!isCollapsed">}</span>
   </div>
 </div>
