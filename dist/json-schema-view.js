@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.4.1 - 2015-06-02T21:57:43.374Z
+ * Version: 0.4.2 - 2015-06-02T22:04:30.440Z
  * License: MIT
  */
 
