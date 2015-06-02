@@ -4,6 +4,29 @@ var app = angular.module('demo', ['mohsen1.json-schema-view', 'jsonFormatter']);
 
 app.controller('MainCtrl', function($scope) {
 
+
+  $scope.liveSchema = {
+    title: 'Person',
+    properties: {
+      name: {
+        type: 'string'
+      }
+    }
+  };
+
+  $scope.liveSchemaStr = JSON.stringify($scope.liveSchema, null, 2);
+
+  $scope.onLiveSchemaKeyUp = function () {
+    $scope.invalidLiveStr = false;
+
+    try {
+      $scope.liveSchema = JSON.parse($scope.liveSchemaStr)
+
+    } catch(err) {
+      $scope.invalidLiveStr = true;
+    }
+  };
+
   $scope.schemas = [
     {
       title: 'Simple',

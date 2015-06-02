@@ -1,6 +1,23 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 .usage {
   margin: 1em 0 2.5em;
   padding: 10px;
   border: 1px solid rgba(0,0,0,0.09);
   border-radius: 5px;
+}
+
+
+.live textarea {
+  width: 100%;
+  min-height: 150px;
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+}
+
+.live textarea.invalid {
+  outline-color: red;
 }
