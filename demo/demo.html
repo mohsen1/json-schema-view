@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="demo">
+<html ng-app="demo" ng-cloak>
   <head>
     <meta charset="utf-8">
     <title>JSON Schema View directive demo</title>
@@ -11,7 +11,7 @@
   <body ng-controller="MainCtrl">
     <div class="container">
       <h1 class="text-muted">JSON Schema View Demo</h1>
-      <div class="row">
+      <header class="row">
         <div class="col-lg-10">
           <iframe src="http://ghbtns.com/github-btn.html?user=mohsen1&repo=json-schema-view&type=watch&size=large&count=true"
           allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
@@ -21,10 +21,24 @@
         <div class="col-lg-2 text-right">
           <a href="https://github.com/mohsen1/json-schema-view" class="btn btn-large btn-primary">Code in GitHub</a>
         </div>
-      </div>
-      </p>
+      </header>
 
-      <div ng-repeat="schema in schemas">
+      <section class="live">
+        <h3>Live Schema</h3>
+        <div class="usage row">
+          <div class="col-md-6">
+            <h4>Edit the schema</h4>
+            <span class="label label-danger" ng-if="invalidLiveStr">Invalid JSON</span>
+            <textarea ng-keyup="onLiveSchemaKeyUp()"ng-class="{invalid: invalidLiveStr}" ng-model="liveSchemaStr"></textarea>
+          </div>
+          <div class="col-md-6">
+            <h4>Result</h4>
+            <json-schema-view schema="liveSchema" open="1"></json-schema-view>
+          </div>
+        </div>
+      </section>
+
+      <section ng-repeat="schema in schemas track by schema.title">
         <h3>{{schema.title}}</h3>
         <div class="usage row">
           <div class="col-md-6">
@@ -36,9 +50,8 @@
             <json-schema-view schema="schema.schema" open="1"></json-schema-view>
           </div>
         </div>
-      </div>
-
-
+      </section>
+    </div>
 
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/json-formatter/dist/json-formatter.js"></script>
