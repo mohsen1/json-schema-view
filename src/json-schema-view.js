@@ -2,7 +2,7 @@
 
 angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
 
-.directive('jsonSchemaView', function(RecursionHelper) {
+.directive('jsonSchemaView', ['RecursionHelper', function(RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = $scope.open < 0;
 
@@ -75,7 +75,7 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
   return {
     restrict: 'E',
     templateUrl: 'json-schema-view.html',
-    replcae: true,
+    replace: true,
     scope: {
       'schema': '=',
       'open': '='
@@ -87,4 +87,4 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
       return RecursionHelper.compile(element, link);
     }
   };
-});
+}]);

@@ -21,10 +21,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "angular": "~1.2.26",
+    "angular": "~1.4.7",
     "jquery": "~2.1.1",
-    "angular-sanitize": "~1.2.26",
-    "angular-mocks": "~1.2.26",
+    "angular-sanitize": "~1.4.7",
+    "angular-mocks": "~1.4.7",
     "json-formatter": "~0.2.2",
     "bootstrap": "~3.2.0"
   }

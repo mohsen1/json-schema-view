@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.4.1 - 2015-06-02T21:40:27.513Z
+ * Version: 0.4.2 - 2015-11-18T19:04:30.864Z
  * License: MIT
  */
 
@@ -34,7 +34,7 @@ json-schema-view .toggle-handle,
 .json-schema-view .toggle-handle:hover,
 json-schema-view .toggle-handle:hover {
   text-decoration: none;
-  color: #333333;
+  color: #333;
 }
 .json-schema-view .description,
 json-schema-view .description {
@@ -51,7 +51,7 @@ json-schema-view .title,
 .json-schema-view .title:hover,
 json-schema-view .title:hover {
   text-decoration: none;
-  color: #333333;
+  color: #333;
 }
 .json-schema-view .property,
 json-schema-view .property {
@@ -75,7 +75,7 @@ json-schema-view .type {
 }
 .json-schema-view .required,
 json-schema-view .required {
-  color: #ff0000;
+  color: #F00;
 }
 .json-schema-view .inner,
 json-schema-view .inner {
