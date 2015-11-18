@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.4.2 - 2015-11-18T19:04:30.858Z
+ * Version: 0.4.2 - 2015-11-18T19:38:31.544Z
  * License: MIT
  */
 
@@ -10,7 +10,7 @@
 
 angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
 
-.directive('jsonSchemaView', ['RecursionHelper', function(RecursionHelper) {
+.directive('jsonSchemaView', ["RecursionHelper", function(RecursionHelper) {
   function link($scope) {
     $scope.isCollapsed = $scope.open < 0;
 
