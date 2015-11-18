@@ -19,6 +19,7 @@ var openBrowser = require('gulp-open');
 var less = require('gulp-less');
 var order = require('gulp-order');
 var jscs = require('gulp-jscs');
+var ngAnnotate = require('gulp-ng-annotate');
 
 var config = {
   pkg : JSON.parse(fs.readFileSync('./package.json')),
@@ -61,6 +62,7 @@ gulp.task('scripts', function() {
 
   function buildDistJS() {
     return gulp.src(['src/json-schema-view.js', 'src/recursion-helper.js'])
+      .pipe(ngAnnotate())
       .pipe(concat('json-schema-view.js'))
       .pipe(plumber({
         errorHandler: handleError

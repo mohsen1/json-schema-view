@@ -75,7 +75,7 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
   return {
     restrict: 'E',
     templateUrl: 'json-schema-view.html',
-    replcae: true,
+    replace: true,
     scope: {
       'schema': '=',
       'open': '='

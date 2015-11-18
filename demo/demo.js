@@ -2,7 +2,7 @@
 
 var app = angular.module('demo', ['mohsen1.json-schema-view', 'jsonFormatter']);
 
-app.controller('MainCtrl', function($scope) {
+app.controller('MainCtrl', ['$scope', function($scope) {
 
 
   $scope.liveSchema = {
@@ -361,4 +361,4 @@ app.controller('MainCtrl', function($scope) {
       }
     }
   ];
-});
+}]);
