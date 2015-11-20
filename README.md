@@ -6,6 +6,8 @@
 
 JSON Schema is very verbose and hard to read in JSON. This directive helps rendering a JSON Schema in a user readable format.
 
+The same module is also available in pure JavaScript with no dependencies. **Check it out [here](https://github.com/mohsen1/json-schema-view-js)**
+
 [Try it in action](http://azimi.me/json-schema-view/demo/demo.html)
 
 [![Screenshot](/images/screenshot.png?raw=true)](http://mohsenweb.com/json-schema-view/demo/demo.html)
