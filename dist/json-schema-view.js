@@ -1,7 +1,7 @@
 /*!
  * json-schema-view
  * https://github.com/mohsen1/json-schema-view
- * Version: 0.4.2 - 2015-11-18T19:38:31.544Z
+ * Version: 0.4.3 - 2016-03-10T18:34:49.538Z
  * License: MIT
  */
 
@@ -12,8 +12,6 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
 
 .directive('jsonSchemaView', ["RecursionHelper", function(RecursionHelper) {
   function link($scope) {
-    $scope.isCollapsed = $scope.open < 0;
-
     /*
      * Recursively walk the schema and add property 'name' to property objects
     */
@@ -31,18 +29,6 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
         });
       }
     }
-
-    addPropertyName($scope.schema);
-
-    // Determine if a schema is an array
-    $scope.isArray = $scope.schema && $scope.schema.type === 'array';
-
-    // Determine if a schema is a primitive
-    $scope.isPrimitive = $scope.schema &&
-      !$scope.schema.properties &&
-      !$scope.schema.items &&
-      $scope.schema.type !== 'array' &&
-      $scope.schema.type !== 'object';
 
     /*
      * Toggles the 'collapsed' state
@@ -78,6 +64,24 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
     $scope.convertXOf = function(type) {
       return type.substring(0, 3) + ' of';
     };
+
+    $scope.refresh = function() {
+      $scope.isCollapsed = $scope.open < 0;
+
+      addPropertyName($scope.schema);
+
+      // Determine if a schema is an array
+      $scope.isArray = $scope.schema && $scope.schema.type === 'array';
+
+      // Determine if a schema is a primitive
+      $scope.isPrimitive = $scope.schema &&
+        !$scope.schema.properties &&
+        !$scope.schema.items &&
+        $scope.schema.type !== 'array' &&
+        $scope.schema.type !== 'object';
+    };
+
+    $scope.$watch('schema', $scope.refresh);
   }
 
   return {
