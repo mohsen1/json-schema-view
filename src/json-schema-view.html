@@ -32,7 +32,7 @@
     </span>
     <div class="inner">
       <div class="description">{{schema.description}}</div>
-      <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1"></json-schema-view>
+      <json-schema-view ng-if="!isCollapsed" schema="schema.items" open="open - 1" refObject="refObject"></json-schema-view>
     </div>
     <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
     <div ng-include="'x_of.html'" ng-if="schema.allOf" onload="type = 'allOf'"></div>
@@ -52,7 +52,7 @@
       <div class="description">{{schema.description}}</div>
       <div class="property" ng-repeat="(propertyName, property) in schema.properties">
         <span class="name">{{propertyName}}:</span>
-        <json-schema-view schema="property" open="open - 1"></json-schema-view>
+        <json-schema-view schema="property" open="open - 1" refObject="refObject"></json-schema-view>
       </div>
     </div>
     <div ng-include="'enum.html'" ng-if="!isCollapsed && schema.enum"></div>
