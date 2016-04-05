@@ -56,8 +56,8 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
     $scope.convertXOf = function(type) {
       return type.substring(0, 3) + ' of';
     };
+    $scope.isCollapsed = $scope.open < 0;
     $scope.refresh = function() {
-      $scope.isCollapsed = $scope.open < 0;
       if ($scope.schema && $scope.schema.$ref && $scope.refObject) {
         var keys = $scope.schema.$ref.split('/');
         if (keys[0] !== '#') throw new Error("Only local $refs are supported");
@@ -65,7 +65,11 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
         var cur = $scope.refObject;
         keys.forEach(function(k) {cur = cur[k];});
         $scope.label = keys[keys.length - 1];
-        $scope.schema = cur;
+        if (!$scope.isCollapsed) {
+          $scope.schema = cur;
+        } else {
+          $scope.schema.properties = {};
+        }
       }
 
       addPropertyName($scope.schema);
@@ -81,6 +85,7 @@ angular.module('mohsen1.json-schema-view', ['RecursionHelper'])
         $scope.schema.type !== 'object';
     };
 
+    $scope.$watch('isCollapsed', $scope.refresh);
     $scope.$watch('schema', $scope.refresh);
   }
 
