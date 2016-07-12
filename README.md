@@ -1,6 +1,6 @@
 # JSON Schema View
 
-[![Build Status](https://travis-ci.org/mohsen1/json-schema-view.svg?branch=master)](https://travis-ci.org/mohsen1/json-schema-view)
+> This is a fork of [moshen1's json-schema-view](/moshen1/json-schema-view). It allows the user to expand $refs inside the UI.
 
 **An AngularJS directive for rendering JSON Schema in HTML.**
 
