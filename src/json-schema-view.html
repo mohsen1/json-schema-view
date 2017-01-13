@@ -24,7 +24,7 @@
   <!-- Array -->
   <div ng-if="isArray" class="array">
     <a class="title" ng-click="toggle()"><span
-      class="toggle-handle"></span>{{schema.title}} <span class="opening bracket">[</span><span class="closing bracket" ng-if="isCollapsed">]</span>
+      class="toggle-handle"></span>{{schema.title}} <span class="opening bracket">[</span><span class="closing bracket" ng-if="isCollapsed">] <span class="required" ng-if="isRequired(schema)">*</span></span>
     </a>
     <span ng-if="!isCollapsed && (schema.uniqueItems || schema.minItems || schema.maxItems)">
       <span title="items range">({{schema.minItems || 0}}..{{schema.maxItems || '∞'}})</span>
@@ -38,7 +38,7 @@
     <div ng-include="'x_of.html'" ng-if="schema.allOf" onload="type = 'allOf'"></div>
     <div ng-include="'x_of.html'" ng-if="schema.anyOf" onload="type = 'anyOf'"></div>
     <div ng-include="'x_of.html'" ng-if="schema.oneOf" onload="type = 'oneOf'"></div>
-    <span class="closing bracket" ng-if="!isCollapsed">]</span>
+    <span class="closing bracket" ng-if="!isCollapsed">] <span class="required" ng-if="isRequired(schema)">*</span></span>
   </div>
 
   <!-- Object -->
